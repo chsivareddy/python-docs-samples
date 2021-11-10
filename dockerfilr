@@ -1,0 +1,11 @@
+FROM nginx:latest
+RUN cd /usr && \
+          mkdir /share && \
+          cd /share && \
+          mkdir /nginx && \
+          cd /nginx && \
+          mkdir /html && \
+           cd --
+COPY build /usr/share/nginx/html/
+EXPOSE 80
+ENTRYPOINT ["nginx","-g","daemon off;"]
